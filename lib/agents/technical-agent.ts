@@ -1,4 +1,5 @@
 import { Agent } from "@openai/agents";
+import { outputGuardrail } from "./guardrails/output-guardrail";
 
 export const technicalAgent = new Agent({
   name: "Technical Support Agent",
@@ -17,4 +18,5 @@ export const technicalAgent = new Agent({
     - Never invent technical details.
     - If you cannot solve an issue, be honest.
   `,
+  outputGuardrails: [outputGuardrail],
 });

@@ -1,4 +1,5 @@
 import { Agent } from "@openai/agents";
+import { outputGuardrail } from "./guardrails/output-guardrail";
 
 export const faqAgent = new Agent({
   name: "FAQ Support Agent",
@@ -17,4 +18,5 @@ export const faqAgent = new Agent({
     - Never invent product information.
     - If you don't know something, be honest.
   `,
+  outputGuardrails: [outputGuardrail],
 });

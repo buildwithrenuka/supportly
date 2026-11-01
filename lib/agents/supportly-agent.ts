@@ -2,6 +2,8 @@ import { Agent } from "@openai/agents";
 import { faqAgent } from "./faq-agent";
 import { technicalAgent } from "./technical-agent";
 import { orderStatusTool } from "./tools/order-status-tool";
+import { inputGuardrail } from "./guardrails/input-guardrail";
+import { outputGuardrail } from "./guardrails/output-guardrail";
 
 export const supportlyAgent = new Agent({
   name: "Supportly Customer Support Agent",
@@ -43,4 +45,7 @@ export const supportlyAgent = new Agent({
     technicalAgent,
   ],
   tools: [orderStatusTool],
+
+  inputGuardrails: [inputGuardrail],
+  outputGuardrails: [outputGuardrail],
 });
